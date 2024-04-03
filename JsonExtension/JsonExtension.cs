@@ -24,6 +24,12 @@ namespace JsonExtension
             return result;
         }
 
+        public static string ToJsonString<T>(this T value)
+        {
+            string result = JsonSerializer.Serialize(value);
+
+            return result;
+        }
         public static bool IsJson(this string value)
         {
             JsonDocument json;
