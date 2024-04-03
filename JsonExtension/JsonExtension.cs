@@ -5,7 +5,7 @@ namespace JsonExtension
 {
     public static class JsonExtension
     {
-        public static T ToJson<T>(this string value)
+        public static T FromJson<T>(this string value)
         {
             T result = JsonSerializer.Deserialize<T>(value, new JsonSerializerOptions
             {
@@ -15,7 +15,7 @@ namespace JsonExtension
             return result;
         }
 
-        public static T ToJson<T>(this string value, JsonSerializerOptions? options)
+        public static T FromJson<T>(this string value, JsonSerializerOptions? options)
         {
             options.PropertyNameCaseInsensitive = true;
 
@@ -24,7 +24,7 @@ namespace JsonExtension
             return result;
         }
 
-        public static string ToJsonString<T>(this T value)
+        public static string ToJson<T>(this T value)
         {
             string result = JsonSerializer.Serialize(value);
 
