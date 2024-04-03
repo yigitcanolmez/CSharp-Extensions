@@ -20,9 +20,10 @@ var listJson = """
 Console.WriteLine(json.ToJson<User>().Name);
 Console.WriteLine(listJson.ToJson<List<User>>().First().Surname);
 
-Console.WriteLine(json.ToJson<User>(new JsonSerializerOptions
-{
-    IgnoreReadOnlyFields = true
-}).Name);
 
-Console.Read();
+var list = listJson.ToJson<List<User>>();
+var _object = json.ToJson<User>();
+
+Console.WriteLine(list.ToJsonString());
+Console.WriteLine(_object.ToJsonString());
+
